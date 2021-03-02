@@ -25,7 +25,7 @@ SECRET_KEY = 'e*@x+djy%b1_s6^omuoe2=!8o#=v13iudla=gyfxj83)&sbm^k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1' ,'app.financial-paradise.com','financial-paradise.com','www.app.financial-paradise.com','www.financial-paradise.com']
+ALLOWED_HOSTS = ['*','0.0.0.0','127.0.0.1' ,'boscca.sacconstellation.coop']
 
 
 # Application definition

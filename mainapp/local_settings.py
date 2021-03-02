@@ -27,7 +27,7 @@ if DJANGO_ENV == 'development' or DJANGO_ENV == 'production':
     try:
         ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
     except:
-        ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost' ,'app.financial-paradise.com','financial-paradise.com','www.app.financial-paradise.com','www.financial-paradise.com']
+        ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost' ,'boscca.sacconstellation.coop']
 
     DATABASES = {
         "default": {
@@ -42,7 +42,7 @@ if DJANGO_ENV == 'development' or DJANGO_ENV == 'production':
 else:
     SECRET_KEY = 'localsecret'
     DEBUG = True
-    ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost' ,'app.financial-paradise.com','financial-paradise.com','www.app.financial-paradise.com','www.financial-paradise.com']
+    ALLOWED_HOSTS = ['boscca.sacconstellation.coop']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',

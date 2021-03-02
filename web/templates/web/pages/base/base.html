@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>BOSCCA</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'theme_favicon.ico' %}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,400i,500,700%7CAlegreya:400" rel="stylesheet">
+
+    <!-- CSS theme Compulsory -->
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/bootstrap/bootstrap.min.css' %}">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/icon-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/icon-line-pro/style.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/icon-hs/style.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/icon-material/material-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/hs-megamenu/src/hs.megamenu.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/hamburgers/hamburgers.min.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/slick-carousel/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/fancybox/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/chosen/chosen.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/dzsparallaxer/dzsparallaxer.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/dzsparallaxer/dzsscroller/scroller.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/dzsparallaxer/advancedscroller/plugin.css' %}">
+    <link rel="stylesheet" href="{% static 'theme_assets/vendor/hs-bg-video/hs-bg-video.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_assets/vendor/jquery-ui/themes/base/jquery-ui.min.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_assets/vendor/hs-bg-video/hs-bg-video.css' %}">
+   
+    <!-- CSS SACCO Theme -->
+    <link rel="stylesheet" href="{% static 'app_assets/css/styles.multipage-education.css' %}">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{% static 'theme_assets/css/custom.css' %}">
+  </head>
+
+  <body>
+    <main>
+      {% include 'web/pages/base/header.html'%}
+        {% block content %} {% endblock %}
+
+    </main>
+    
+  
+    <!-- JS theme Compulsory -->
+    <script src="{% static 'theme_assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/popper.js/popper.min.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/bootstrap/bootstrap.min.js' %}"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="{% static 'theme_assets/vendor/hs-megamenu/src/hs.megamenu.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/slick-carousel/slick/slick.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/fancybox/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/chosen/chosen.jquery.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/hs-bg-video/hs-bg-video.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/hs-bg-video/vendor/player.min.js' %}"></script>
+
+    <script src="{% static 'theme_assets/vendor/dzsparallaxer/dzsparallaxer.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/dzsparallaxer/dzsscroller/scroller.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/dzsparallaxer/advancedscroller/plugin.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/hs-bg-video/hs-bg-video.js' %}"></script>
+    <script src="{% static 'theme_assets/vendor/hs-bg-video/vendor/player.min.js' %}"></script>
+
+    <!-- JS SACCO -->
+    <script src="{% static 'theme_assets/js/hs.core.js' %}"></script>
+    <script src="{% static 'theme_assets/js/components/hs.header.js' %}"></script>
+    <script src="{% static 'theme_assets/js/helpers/hs.hamburgers.js' %}"></script>
+    <script src="{% static 'theme_assets/js/components/hs.dropdown.js' %}"></script>
+    <script src="{% static 'theme_assets/js/helpers/hs.height-calc.js' %}"></script>
+    <script src="{% static 'theme_assets/js/components/hs.carousel.js' %}"></script>
+    <script src="{% static 'theme_assets/js/components/hs.popup.js' %}"></script>
+    <script src="{% static 'theme_assets/js/components/hs.go-to.js' %}"></script>
+
+    <!-- JS Customization -->
+    <script src="{% static 'theme_assets/js/custom.js' %}"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+      $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#js-header'));
+        $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+          event: 'hover',
+          pageContainer: $('.container'),
+          breakpoint: 991
+        });
+
+        // initialization of HSDropdown component
+        $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+          afterOpen: function () {
+            $(this).find('input[type="search"]').focus();
+          }
+        });
+
+        // initialization of carousel
+        $.HSCore.components.HSCarousel.init('[class*="js-carousel"]');
+
+        // initialization of video on background
+        $.HSCore.helpers.HSBgVideo.init('.js-bg-video');
+        // initialization of header's height equal offset
+        $.HSCore.helpers.HSHeightCalc.init();
+
+        // initialization of popups
+        $.HSCore.components.HSPopup.init('.js-fancybox');
+      // initialization of forms
+      $.HSCore.components.HSDatepicker.init('#datepickerInline');
+            // initialization of custom select
+      $.HSCore.components.HSSelect.init('.js-custom-select');
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+      });
+      $(window).on('load', function () {
+        // initialization of HSScrollNav
+        $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+          duration: 700,
+          over: $('.u-secondary-navigation')
+        });
+
+        // initialization of sticky blocks
+        $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+      });
+
+              // Signin Tab
+        $('#signin-link, #go-back-link').on('click', function(e) {
+          e.preventDefault();
+          $('#signin, #go-back-link').show();
+          $('#signup').hide();
+          $('#forgot-password').hide();
+        });
+
+        $('#signup-link').on('click', function(e) {
+          e.preventDefault();
+          $('#signup').show();
+          $('#signin, #go-back-link').hide();
+          $('#forgot-password').hide();
+        });
+
+        $('#forgot-password-link').on('click', function(e) {
+          e.preventDefault();
+          $('#forgot-password').show();
+          $('#signin').hide();
+          $('#signup').hide();
+        });
+    </script>
+  </body>
+</html>

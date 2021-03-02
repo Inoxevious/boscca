@@ -1,0 +1,70 @@
+{% extends 'web/dashboards/manager/base/base.html' %}
+{% block content %}
+		<!-- FORM VALIDATION -->
+		<div class="row mt">
+			<ul class="nav pull-right top-menu">
+				<li><a class="logout" href="{% url 'users:view_executives' %}">View Executives</a></li>
+			  </ul>
+			<div class="col-lg-12">
+			  <h4>Assign Role to Member</h4>
+			  <div class="form-panel">
+				<div class=" form">
+					{% include 'web/dashboards/manager/base/_alerts.html' %}
+
+				  <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="{% url 'users:assign_member' %}">
+					{% csrf_token %}
+
+					<div class="form-group ">
+						<label for="city" class="control-label col-lg-2">Select Role(required)</label>
+						<div class="col-lg-8">
+
+							<select name="role"  class="form-control">
+								{% for role in roles %}
+								<option value="{{role.id}}" >{{role.id}}, {{role.name }}</option>
+								{% endfor %}
+							  </select>	
+						</div>
+						<div class="col-lg-2">
+							<a href="{% url 'users:view_tutors' %}">
+								<i class="fa fa-plus"></i> add role
+							</a>
+
+						  </div>
+					  </div>
+
+					  <div class="form-group ">
+						<label for="city" class="control-label col-lg-2">Select Member(required)</label>
+						<div class="col-lg-8">
+
+							<select name="member"  class="form-control">
+								{% for member in members %}
+								<option value="{{member.id}}" >{{member.id}}, {{  member.user.first_name }}</option>
+								{% endfor %}
+							  </select>	
+						</div>
+						<div class="col-lg-2">
+							<a href="{% url 'users:view_tutors' %}">
+								<i class="fa fa-plus"></i> add member
+							</a>
+
+						  </div>
+					  </div>
+
+
+					<div class="form-group">
+					  <div class="col-lg-offset-2 col-lg-10">
+						<button class="btn btn-theme" type="submit">Save</button>
+						<button class="btn btn-theme04" type="button">Cancel</button>
+					  </div>
+					</div>
+				  </form>
+				</div>
+			  </div>
+			  <!-- /form-panel -->
+			</div>
+			<!-- /col-lg-12 -->
+		  </div>
+		  <!-- /row -->
+
+
+		  {% endblock %}

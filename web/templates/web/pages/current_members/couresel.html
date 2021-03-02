@@ -1,0 +1,279 @@
+{% load static %}
+		 
+
+			<!-- Promo Block -->
+			<div class="g-bg-img-hero g-pos-rel" style="background-image: url({% static 'app_assets/img/bg/bg-img1.png' %});">
+				<div class="container g-pt-100">
+					<div class="row justify-content-lg-between">
+						<div class="col-lg-4 g-pt-50--lg">
+							<div class="mb-5">
+								<h1 class="g-font-size-45 mb-4">Welcome!</h1>
+								<p>Explore our  Community.</p>
+							</div>
+
+							<a class="js-go-to btn u-shadow-v33 g-hidden-md-down g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-35 g-py-10" href="#!" data-target="#content">Explore Now</a>
+						</div>
+
+						<div  style="margin-top: -60px;" class="col-lg-8 align-self-end">
+							<div class="u-shadow-v40 g-brd-around g-brd-7 g-brd-secondary rounded">
+								<img  class="img-fluid rounded" src="{% static 'app_assets/img-temp/DSC_0378.JPG' %}" alt="Image Description">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- SVG Bottom Background Shape -->
+				<svg class="g-pos-abs g-bottom-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 viewBox="0 0 1921 183.5" enable-background="new 0 0 1921 183.5" xml:space="preserve">
+					<path fill="#FFFFFF" d="M0,183.5v-142c0,0,507,171,1171,58c0,0,497-93,750,84H0z"/>
+					<path opacity="0.2" fill="#FFFFFF" d="M0,183V0c0,0,507,220.4,1171,74.7c0,0,497-119.9,750,108.3H0z"/>
+				</svg>
+				<!-- End SVG Bottom Background Shape -->
+			</div>
+			<!-- End Promo Block -->
+			<!-- About Current Students -->
+			<div id="content" class="container g-py-70">
+				<div class="row">
+					<div class="col-lg-9 order-lg-2">
+						<div class="g-pl-15--lg">
+							<!-- <h2>Current Members</h2> -->
+							<p>Our mission is to provide our members with the highest quality service and continually consult with them
+								in order to provide quality products and services that focus on their needs..</p>
+
+							<!-- Search -->
+							<form class="input-group u-shadow-v19 g-brd-primary--focus g-rounded-30">
+								<input class="form-control h-100 g-brd-secondary-light-v2 g-rounded-left-30 g-px-30 g-py-12" type="text" placeholder="Search all current students services websites">
+								<button class="btn input-group-addon d-flex align-items-center u-shadow-v33 g-brd-none g-color-white g-bg-primary g-bg-main--hover g-rounded-right-30 g-transition-0_2 g-px-30" type="button">
+									Ask Us
+								</button>
+							</form>
+							<!-- End Search -->
+						</div>
+					</div>
+
+					<div class="col-lg-3 order-lg-1">
+						<!-- Sidebar Links -->
+						<ul class="list-unstyled">
+							<li class="mb-1">
+								<a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7" href="#">
+									<i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
+									National Calendar
+								</a>
+							</li>
+							<li class="mb-1">
+								<a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7" href="#">
+									<i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
+									Current Trainer
+								</a>
+							</li>
+							<li class="mb-1">
+								<a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7" href="#">
+									<i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
+									Community Projects
+								</a>
+							</li>
+							<li class="mb-1">
+								<a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7" href="#">
+									<i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
+									Courses &amp; Leadership
+								</a>
+							</li>
+						 
+						</ul>
+						<!-- End Sidebar Links -->
+					</div>
+				</div>
+			</div>
+			<!-- End About Current Students -->
+
+			<!-- More Links -->
+			<div class="g-bg-img-hero" style="background-image: url({% static 'app_assets/include/svg/svg-bg1.svg' %});">
+				<div class="container g-py-100">
+					<!-- Heading -->
+					<div class="g-max-width-645 text-center mx-auto g-mb-60">
+						<h2 class="h1">Current Members</h2>
+					</div>
+					<!-- End Heading -->
+
+					<div class="card-group d-block d-md-flex g-mx-minus-4">
+						{% for sacco in saccos %}
+						<div class="card g-brd-none g-mx-4 g-mb-8">
+							
+							<!-- Links -->
+							<div class="card-body u-shadow-v38 g-bg-white rounded g-pa-40">
+								<span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
+									<i class="icon-finance-245 u-line-icon-pro"></i>
+								</span>
+								<h3 class="h4">{{sacco.name}}</h3>
+								<p class="g-color-text-light-v1">{{sacco.desciption}}</p>
+								<a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">Learn More<i class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
+							</div>
+							<!-- End Links -->
+
+						</div>
+						{% endfor %}
+					</div>
+
+					<div class="card-group d-block d-md-flex g-mx-minus-4">
+						<div class="card g-brd-none g-mx-4 g-mb-8">
+							<!-- Links -->
+							<div class="card-body u-shadow-v38 g-bg-white rounded g-pa-40">
+								<span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
+									<i class="icon-communication-058 u-line-icon-pro"></i>
+								</span>
+								<h3 class="h4">SACCO 1</h3>
+								<p class="g-color-text-light-v1">Health, wellbeing and support services, mentoring, and clubs and societies.</p>
+								<a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">Learn More<i class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
+							</div>
+							<!-- End Links -->
+						</div>
+
+						<div class="card g-brd-none g-mx-4 g-mb-8">
+							<!-- Links -->
+							<div class="card-body u-shadow-v38 g-bg-white rounded g-pa-40">
+								<span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
+									<i class="icon-education-103 u-line-icon-pro-v3"></i>
+								</span>
+								<h3 class="h4">SACCO 2</h3>
+								<p class="g-color-text-light-v1">Log in to Credit Union systems, find computers and access wi-fi, get the most out of online learning (LMS), help.</p>
+								<a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">Learn More<i class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
+							</div>
+							<!-- End Links -->
+						</div>
+
+						<div class="card g-brd-none g-mx-4 g-mb-8">
+							<!-- Links -->
+							<div class="card-body u-shadow-v38 g-bg-white rounded g-pa-40">
+								<span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
+									<i class="icon-communication-040 u-line-icon-pro"></i>
+								</span>
+								<h3 class="h4">SACCO 3</h3>
+								<p class="g-color-text-light-v1">Update your personal details, obtain an academic transcript, check key dates, learn about graduation, make a complaint or raise a concern.</p>
+								<a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">Learn More<i class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
+							</div>
+							<!-- End Links -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End More Links -->
+
+			<!-- Admission Heading -->
+			<div class="container">
+				<!-- Heading -->
+				<div class="g-max-width-645 text-center mx-auto g-mb-60">
+					<h2 class="h1 mb-3">Notices</h2>
+					<p>Get the latest notices and newsworthy updates on the latest SACCO announcements.</p>
+				</div>
+				<!-- End Heading -->
+			</div>
+			<!-- End Admission Heading -->
+
+			<!-- Notice -->
+			<div class="g-bg-secondary">
+				<div class="container-fluid g-px-8 g-pt-8">
+					<!-- Notice Carousel -->
+					<div class="js-carousel u-carousel-v5 g-mx-minus-4"
+							 data-slides-show="4"
+							 data-slides-scroll="1"
+							 data-arrows-classes="u-icon-v3 u-icon-size--sm g-absolute-centered--x g-bottom-minus-70 g-color-main g-color-white--hover g-bg-secondary g-bg-primary--hover rounded g-pa-11"
+							 data-arrow-left-classes="fa fa-angle-left g-ml-minus-25"
+							 data-arrow-right-classes="fa fa-angle-right g-ml-25"
+							 data-responsive='[{
+								 "breakpoint": 992,
+								 "settings": {
+									 "slidesToShow": 3
+								 }
+							 }, {
+								 "breakpoint": 768,
+								 "settings": {
+									 "slidesToShow": 2
+								 }
+							 }, {
+								 "breakpoint": 554,
+								 "settings": {
+									 "slidesToShow": 1
+								 }
+							 }]'>
+
+						<!-- Notice - Article -->
+						<div class="js-slide g-mx-4 g-mb-8">
+							<div class="u-info-v11-1 g-bg-white text-center rounded g-px-40 g-py-50">
+								<div class="g-width-150 g-height-150 mx-auto mb-4">
+									<img class="img-fluid u-info-v11-1-img rounded-circle" src="{% static 'app_assets/img-temp/150x150/img1.jpg' %}" alt="Image Description">
+								</div>
+								<div class="mb-5">
+									<h3 class="mb-3">Semester 2 members Services and Amenities Fee (SSAF)</h3>
+									<p>Your Semester 2 SSAF statement is now available. Log in to SACCO members to access your statement...</p>
+								</div>
+								<a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10" href="#">Read Now</a>
+							</div>
+						</div>
+						<!-- End Notice - Article -->
+
+						<!-- Notice - Article -->
+						<div class="js-slide g-mx-4 g-mb-8">
+							<div class="u-info-v11-1 g-bg-white text-center rounded g-px-40 g-py-50">
+								<div class="g-width-150 g-height-150 mx-auto mb-4">
+									<img class="img-fluid u-info-v11-1-img rounded-circle" src="{% static 'app_assets/img-temp/150x150/img5.jpg' %}" alt="Image Description">
+								</div>
+								<div class="mb-5">
+									<h3 class="mb-3">New undergraduate curriculum</h3>
+									<p>The Credit Union's reimagined Sydney Undergraduate Experience will launch in 2018. If you're a current first-year members, you may be eligibl...</p>
+								</div>
+								<a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10" href="#">Read Now</a>
+							</div>
+						</div>
+						<!-- End Notice - Article -->
+
+						<!-- Notice - Article -->
+						<div class="js-slide g-mx-4 g-mb-8">
+							<div class="u-info-v11-1 g-bg-white text-center rounded g-px-40 g-py-50">
+								<div class="g-width-150 g-height-150 mx-auto mb-4">
+									<img class="img-fluid u-info-v11-1-img rounded-circle" src="{% static 'app_assets/img-temp/150x150/img3.jpg' %}" alt="Image Description">
+								</div>
+								<div class="mb-5">
+									<h3 class="mb-3">SACCO Uni Alert is now live</h3>
+									<p>A new emergency alert system is now live across our campuses allowing us to send you vital safety information directly to your mobile in the e...</p>
+								</div>
+								<a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10" href="#">Read Now</a>
+							</div>
+						</div>
+						<!-- End Notice - Article -->
+
+						<!-- Notice - Article -->
+						<div class="js-slide g-mx-4 g-mb-8">
+							<div class="u-info-v11-1 g-bg-white text-center rounded g-px-40 g-py-50">
+								<div class="g-width-150 g-height-150 mx-auto mb-4">
+									<img class="img-fluid u-info-v11-1-img rounded-circle" src="{% static 'app_assets/img-temp/150x150/img4.jpg' %}" alt="Image Description">
+								</div>
+								<div class="mb-5">
+									<h3 class="mb-3">Semester 2 exam timetables</h3>
+									<p>Your Semester 2 exam timetable is now available.</p>
+									<p>Seat numbers are no longer displayed on the timetable. Your seat number will...</p>
+								</div>
+								<a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10" href="#">Read Now</a>
+							</div>
+						</div>
+						<!-- End Notice - Article -->
+
+						<!-- Notice - Article -->
+						<div class="js-slide g-mx-4 g-mb-8">
+							<div class="u-info-v11-1 g-bg-white text-center rounded g-px-40 g-py-50">
+								<div class="g-width-150 g-height-150 mx-auto mb-4">
+									<img class="img-fluid u-info-v11-1-img rounded-circle" src="{% static 'app_assets/img-temp/150x150/img2.jpg' %}" alt="Image Description">
+								</div>
+								<div class="mb-5">
+									<h3 class="mb-3">Credit Union Health Service</h3>
+									<p>The Credit Union Health Service medical centre on Level 3, Wentworth Building, will close for renovations from Saturday 2 December...</p>
+								</div>
+								<a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10" href="#">Read Now</a>
+							</div>
+						</div>
+						<!-- End Notice - Article -->
+					</div>
+					<!-- End Notice Carousel -->
+				</div>
+			</div>
+			<!-- End Notice -->
+

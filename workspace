@@ -1,0 +1,74 @@
+cd ~/Documents/projects/dreatol/webapp
+source nhumeenv/bin/activate && conda deactivate
+cd ~/Documents/projects/cent_cent/coopApp/backend/django_app
+cd ~/Documents/projects/dreatol/webapp/finreactapp/backend/django_app
+python manage.py runserver
+
+python manage.py startapp 
+
+python manage.py createsuperuser
+python manage.py makemigrations
+python manage.py migrate
+python manage.py collectstatic --noinput
+
+ssh -i "finpara.pem" ubuntu@ec2-18-218-46-101.us-east-2.compute.amazonaws.com
+
+
+rsync -avz -progress -e 
+
+# run locally in project main directory
+rsync -avz -progress -e "ssh -i ../finpara.pem"  --exclude frontend/node_modules --exclude frontend/react_app/node_modules . ubuntu@ec2-18-218-46-101.us-east-2.compute.amazonaws.com:/home/ubuntu/app/
+
+cd app
+sudo docker-compose build
+
+
+chmod +x init-letsencrypt.sh
+sudo ./init-letsencrypt.sh
+sudo docker-compose down
+sudo docker-compose build
+sudo docker-compose up --detach
+
+# run in VPS! in app dir
+
+# stop containers
+sudo docker-compose down
+
+# build containers
+sudo docker-compose build
+
+# run containers
+sudo docker-compose up --detach
+
+
+
+                var frm = $('#AddCity');
+                frm.submit(getAjax);
+                function getAjax() {
+                    var formData = JSON.stringify($("#AddCity").serializeArray());
+                    console.log("Request parameters:")
+                    console.log(JSON.parse(formData))
+                    $.ajax({
+                        headers: { "X-CSRFToken": '{{csrf_token}}' },
+                        type: "POST",
+                        url: "{% url 'users:add_city' %}",
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: formData,
+                        success: function (data) {
+                            jsonData = console.log(data);
+                            var dataObj = JSON.parse(data);
+                            console.log("Response data:")
+                            console.log(dataObj)
+                            $.each(data, function (a, b) {
+                                alert("We got what we came for!" + b.probability);
+                                /// do stuff
+                                row = "<option>" + b.probability + "</option>" 
+                        
+            
+                                $("#cities").append(row);
+                            });
+                            //more stuff here, too much for this example
+                        },
+                    }); return false;
+                }

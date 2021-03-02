@@ -1,0 +1,93 @@
+{% load static %}
+
+
+  <!--  MODALS -->
+            <div style="display: hidden;" class="showback">
+                <!-- <h4><i class="fa fa-angle-right"></i> Modal Example</h4> -->
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Add City</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-panel">
+                            <div class=" ">
+                                <form id="AddCity" class="cmxform form-horizontal style-form" >
+                                    {% csrf_token %}
+<!--                                     
+                                <div class="form-group ">
+                                    <label for="country" class="control-label col-lg-2">Country</label>
+                                    <div class="col-lg-10">
+            
+                                        <select  id="country" name="country"  class="form-control">
+                                            <option value="Zimbabwe">Zimbabwe</option>
+                                            
+                                            {% for key, value in countries_choices.items %}
+                                            <option value="{{key}}">{{value}} </option>
+                                        {% endfor %}
+                                
+                                          </select>	
+                                    </div>
+                                  </div> -->
+
+                                  {% for field in form %}
+                                  <div class="form-group ">
+                                    <label for="city" class="control-label col-lg-2">{{ field.label }}</label>
+                                    <div class="col-lg-10">
+                                    {{ field }}
+                                      <!-- <input class=" form-control" id="city" name="city" minlength="2" type="text" required /> -->
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                 
+                               
+                            </div>
+                        </div>
+                       
+                      </div>
+                      <div  class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% block javascript %}
+              <script src="{% static 'dash_assets/lib/jquery/jquery.min.js' %}"></script>
+              <script>
+        $("#AddCity").submit(function (e) {
+        // preventing from page reload and default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).serialize();
+        // make POST ajax call
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'users:add_city' %}",
+            data: serializedData,
+            success: function (response) {
+                // on successfull creating object
+                // 1. clear the form.
+                $("#AddCity").trigger('reset');
+                // 2. focus to nickname input 
+                $("#AddCity").dismiss();
+
+                // display the newly friend to table.
+                var instance = JSON.parse(response["instance"]);
+                var fields = instance[0]["fields"];
+
+              
+            },
+            error: function (response) {
+                // alert the error if any error occured
+                alert(response["responseJSON"]["error"]);
+            }
+        })
+    })
+            </script>
+            {% endblock javascript %}

@@ -1,0 +1,42 @@
+{% extends 'web/dashboards/manager/base/base.html' %}
+{% block content %}
+<ul class="nav pull-right top-menu">
+	<li><a class="logout" href="{% url 'users:add_new_member' %}">Add New Member</a></li>
+  </ul>
+	<h3>Members </h3>
+
+
+	<div style="margin:1%;" class="row mb">
+	  <!-- page start-->
+	  <div class="content-panel">
+		<div style="margin:1%;" class="adv-table">
+		  <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+			<thead>
+			  <tr>
+				<th>id</th>
+				<th>First Name</th>
+				<th class="hidden-phone">Last Name</th>
+				<th class="hidden-phone">Membership Role</th>
+				<th class="hidden-phone">phone</th>
+			  </tr>
+			</thead>
+			<tbody>
+{% for member in members %}
+			  <tr class="gradeU">
+				<td>{{member.id}}</td>
+				<td>{{member.user.first_name}}</td>
+				<td class="hidden-phone">{{member.user.last_name}}</td>
+				<td class="center hidden-phone">{{member.membership_role}}</td>
+				<td class="center hidden-phone">{{member.whatsapp_number}}</td>
+			  </tr>
+	{% endfor %}
+			</tbody>
+		  </table>
+		</div>
+	  </div>
+	  <!-- page end-->
+	</div>
+	<!-- /row -->
+  </section>
+  <!-- /wrapper -->
+  {% endblock %}

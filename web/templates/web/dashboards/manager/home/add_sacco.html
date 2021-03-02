@@ -1,0 +1,194 @@
+{% extends 'web/dashboards/manager/base/base.html' %}
+{% load static %}
+
+{% block content %}
+		<!-- FORM VALIDATION -->
+		<div class="row mt">
+			<div class="col-lg-12">
+			  <h4><i class="fa fa-angle-right"></i> Add Organization</h4>
+			  <div class="form-panel">
+				<div class=" form">
+					{% include 'web/dashboards/manager/base/_alerts.html' %}
+
+				  <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="{% url 'users:add_sacco' %}">
+					{% csrf_token %}
+					
+					<div class="form-group ">
+						<label for="business_name" class="control-label col-lg-2">Union Name(required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="business_name" name="business_name" minlength="2" type="text" required />
+						</div>
+					  </div>
+					  <div class="form-group ">
+						<label for="phone" class="control-label col-lg-2">Direct Calls Number (required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="phone" name="phone" minlength="2" type="text" required />
+						</div>
+					  </div>
+
+					<div class="form-group ">
+					  <label for="address" class="control-label col-lg-2">Address (required)</label>
+					  <div class="col-lg-10">
+						<textarea class="form-control " id="address" name="address" required></textarea>
+					  </div>
+					</div>
+					<div class="form-group ">
+						<label for="country" class="control-label col-lg-2">Select Country(required)</label>
+						<div class="col-lg-10">
+
+							<select class="form-control" id="countries" 
+							url = "{%url 'users:get_countries' %}">
+							{% for k, v in countries_choices.items %}
+							<option value="{{k}}">{{v}}</option>
+							{% endfor %}
+                        </select>
+						</div>
+					  </div>
+					<div class="form-group ">
+						<label for="city" class="control-label col-lg-2">Select City(required)</label>
+						<div class="col-lg-8">
+
+							<select id="cities" name="city"  class="form-control"
+								url = "{%url 'users:get_citites' %}">
+							  </select>	
+						</div>
+						<div class="col-lg-2">
+							<button  data-toggle="modal" data-target="#myModal">
+								<i class="fa fa-plus"></i> add your city
+							</button>
+
+						  </div>
+					  </div>
+
+
+					  
+
+					<div class="form-group">
+					  <div class="col-lg-offset-2 col-lg-10">
+						<button class="btn btn-theme" type="submit">Save</button>
+						<button class="btn btn-theme04" type="button">Cancel</button>
+					  </div>
+					</div>
+				  </form>
+				</div>
+			  </div>
+			  <!-- /form-panel -->
+			</div>
+			<!-- /col-lg-12 -->
+		  </div>
+		  <!-- /row -->
+
+		  {% include 'web/dashboards/manager/home/add_city.html' %}
+
+		  {% endblock %}
+
+
+
+		  {% block javascript %}
+<!-- <script src="{% static 'dash_assets/lib/jquery/jquery.min.js' %}"></script> -->
+<script src="{% static 'theme_assets/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'theme_assets/vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+
+<script>
+var send_data = {}
+    // get all countries from database via 
+
+    // AJAX call into country select options
+
+    // get all varities from database via 
+
+    // AJAX call into variert select options
+
+// on selecting the country option
+
+$('#countries').on('change', function () {
+	console.log('hi change')
+	// since province and region is dependent 
+
+	// on country select, emty all the options from select input
+
+	// $("#province").val("all");
+	// $("#region").val("all");
+	// send_data['province'] = '';
+	// send_data['region'] = '';
+
+	// update the selected country
+
+	if(this.value == "all")
+		send_data['cities'] = "";
+	else
+		send_data['cities'] = this.value;
+	
+
+	console.log("value" + this.value)
+
+	//get city of selected country
+
+	getCities(this.value);
+	// get api data of updated filters
+
+	// getAPIData();
+});
+
+
+function getCities(country) {
+// fill the options of countries by making ajax call
+
+// obtain the url from the countries select input attribute
+
+let url = $("#cities").attr("url");
+
+// makes request to getCountries(request) method in views
+// makes request to getProvince(request) method in views
+
+let cities_option = "<option value='all' selected>All Cities</option>";
+
+$.ajax({
+	method: 'GET',
+	url: url,
+	data: {
+	  "country": country
+	},
+	success: function (result) {
+
+		$.each(result["cities"], function (a, b) {
+			cities_option += "<option>" + b + "</option>"
+		});
+		$("#cities").html(cities_option)
+	},
+	error: function(response){
+		console.log(response)
+	}
+});
+}
+
+
+function getCountries() {
+    // fill the options of countries by making ajax call
+
+    // obtain the url from the countries select input attribute
+
+	let url = $("#countries").attr("url");
+	console.log('countris ul' + url)
+
+    // makes request to getCountries(request) method in views
+
+    $.ajax({
+        method: 'GET',
+        url: url,
+        data: {},
+        success: function (result) {
+
+            countries_option = "<option value='all' selected>All Countries</option>";
+            $.each(result["countries"], function (a, b) {
+                countries_option += "<option>" + b + "</option>"
+            });
+            $("#countries").html(countries_option)
+        },
+        error: function(response){
+            console.log(response)
+        }
+    });
+}
+		</script>
+		{% endblock javascript %}

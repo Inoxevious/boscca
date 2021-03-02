@@ -1,0 +1,52 @@
+{% load static %}
+		 
+			<!-- Signin Form -->
+			<div class="g-bg-img-hero g-bg-pos-top-center" style="background-image: url({% static 'app_assets/include/svg/svg-bg2.svg' %});">
+				<div class="container g-pt-40 g-pb-100 g-pb-130--lg">
+					{% include 'web/pages/signIn/sign_header.html' %}
+					{% include 'web/pages/signIn/sign_up.html' %}
+
+
+
+
+									<form method="POST" action="{% url 'users:sign_in' %}">
+
+				{% csrf_token %}
+
+									<!-- Forgot Password -->
+									<div id="forgot-password" style="display: none;">
+										<div class="u-shadow-v35 g-bg-white rounded g-px-40 g-py-50">
+											<div class="g-mb-20">
+												<label class="g-color-text-light-v1 g-font-weight-500">Enter your email</label>
+												<div class="input-group">
+													<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
+														<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+															<i class="icon-education-166 u-line-icon-pro"></i>
+														</div>
+													</span>
+													<input name="email" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="email" placeholder="john@gmail.com">
+												</div>
+											</div>
+</form>
+											<div class="d-flex">
+												<button type="submit" class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7 ml-auto">Recover Password</button>
+											</div>
+										</div>
+
+										<div class="text-center g-pt-30">
+											<p class="g-color-text-light-v1 g-font-size-default mb-0">Remember your password? <a class="g-font-size-default" id="go-back-link" href="#!">Signin</a></p>
+										</div>
+									</div>
+									<!-- End Forgot Password -->
+								</form>
+								<!-- End Contact Form -->
+
+								<hr class="g-hidden-md-up g-my-60">
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Signin Form -->

@@ -1,0 +1,196 @@
+<div class="g-pos-rel">
+	<div class="row">
+		<div class="col-md-4">
+			<!-- Heading -->
+			<div class="g-mb-40">
+				<h2 class="h1 mb-3">Sign in to SACCO</h2>
+				<p>By signing in you will be authorized to access your applications and web sites that use the Sign in Service. Use is subject to but not limited to the policies and guidelines listed below in <a href="#">Policies and guidelines</a>.</p>
+			</div>
+			<!-- End Heading -->
+			{% include 'web/pages/signIn/_alerts.html' %}
+		</div>
+		<div style="margin-top: -50px;" class="col-md-8">
+									<!-- Signup -->
+									<form method="POST" action="{% url 'users:sign_up' %}">
+
+										{% csrf_token %}
+						
+															<div id="signup" style="display: none;">
+																<div class="u-shadow-v35 g-bg-white rounded g-px-40 g-py-50">
+																	<div class="row">
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">First name</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-transparent g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-finance-067 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="first_name" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="text" placeholder="John Doe">
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Last name</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-transparent g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-finance-067 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="last_name" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="text" placeholder="John Doe">
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+						
+																	<div class="row">
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">National ID</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-transparent g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-finance-067 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="national_id" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="text" placeholder="29-7777777G77">
+																				</div>
+																			</div>
+														 
+																		</div>
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Email</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-education-166 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="email" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="email" placeholder="john@gmail.com">
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-6">
+
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Password</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-finance-135 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="password" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="password" placeholder="*********">
+																				</div>
+																			</div>
+								
+																		 
+																		</div>
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Confirm Password</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-real-estate-056 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="password1" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="password" placeholder="*********">
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Select Residential City</label>
+																				<div class="input-group g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12">
+																															 <!-- Community -->
+																				<select name="city" class="js-custom-select w-100 u-select-v1 u-shadow-v32 g-brd-none g-color-main g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-25 g-py-12"
+																				data-placeholder="City"
+																				data-open-icon="fa fa-angle-down"
+																				data-close-icon="fa fa-angle-up">
+																				<option value="lead">Harare</option>
+																				<option class="g-brd-secondary-light-v2 g-color-main g-color-white--active g-bg-primary--active" value="member">Gweru </option>
+																			</select>
+																			<!-- End Community -->
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Select Country</label>
+																				<div class="input-group g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12">
+																															 <!-- Community -->
+																				<select name="country" class="js-custom-select w-100 u-select-v1 u-shadow-v32 g-brd-none g-color-main g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-25 g-py-12"
+																				data-placeholder="City"
+																				data-open-icon="fa fa-angle-down"
+																				data-close-icon="fa fa-angle-up">
+																				<option value="Zimbabwe">Zimbabwe</option>
+								
+																				{% for key, value in countries_choices.items %}
+																				<option class="g-brd-secondary-light-v2 g-color-main g-color-white--active g-bg-primary--active" value="{{key}}">{{value}} </option>
+																			{% endfor %}
+																			</select>
+																			<!-- End Community -->
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-6">
+	   
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Select Membership Role</label>
+																				<div class="input-group g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12">
+																															 <!-- Community -->
+																															 <select name="role" class="js-custom-select w-100 u-select-v1 u-shadow-v32 g-brd-none g-color-main g-color-primary--hover g-bg-white text-left g-rounded-30 g-pl-25 g-py-12"
+																															 data-placeholder="Role"
+																															 data-open-icon="fa fa-angle-down"
+																															 data-close-icon="fa fa-angle-up">
+																											 <option value="manager">Sacco Lead</option>
+																											 <option class="g-brd-secondary-light-v2 g-color-main g-color-white--active g-bg-primary--active" value="member">Regular Member</option>
+																											 <option class="g-brd-secondary-light-v2 g-color-main g-color-white--active g-bg-primary--active" value="members">members</option>
+								
+																										 </select>
+																										 <!-- End Community -->
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-md-6">
+																			<div class="g-mb-20">
+																				<label class="g-color-text-light-v1 g-font-weight-500">Whatsapp Number</label>
+																				<div class="input-group">
+																					<span class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-transparent g-rounded-right-0">
+																						<div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+																							<i class="icon-finance-067 u-line-icon-pro"></i>
+																						</div>
+																					</span>
+																					<input name="whatsapp_number" class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12" type="text" placeholder="John Doe">
+																				</div>
+																			</div>
+																   
+																		</div>
+																	</div>
+
+	
+						
+															   
+																	<div style="margin-top:0%;" class="d-flex">
+																		<button type="submit" class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7 ml-auto">Signup</button>
+																	</div>
+						
+																</div>
+						</form>
+																<div class="text-center g-pt-30">
+																	<p class="g-color-text-light-v1 g-font-size-default mb-0">Already have an account? <a class="g-font-size-default" id="signin-link" href="#!">Signin</a></p>
+																</div>
+		</div>
+
+	</div>

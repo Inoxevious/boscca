@@ -1,0 +1,78 @@
+{% extends 'web/dashboards/manager/base/base.html' %}
+{% block content %}
+		<!-- FORM VALIDATION -->
+
+		<div class="row mt">
+			<ul class="nav pull-right top-menu">
+				<li><a class="logout" href="{% url 'users:view_tutors' %}">View Tutors</a></li>
+			  </ul>
+			<div class="col-lg-12">
+			  <h4>Assign Tutor</h4>
+			  <div class="form-panel">
+				<div class=" form">
+					{% include 'web/dashboards/manager/base/_alerts.html' %}
+
+				  <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="{% url 'users:assign_member' %}">
+					{% csrf_token %}
+
+					<div class="form-group ">
+						<label for="city" class="control-label col-lg-2">Select Course(required)</label>
+						<div class="col-lg-8">
+
+							<select name="course"  class="form-control">
+								{% for course in courses %}
+								<option value="{{course.id}}" >{{course.id}}, {{course.name }}</option>
+								{% endfor %}
+								
+							  </select>	
+			
+
+							  <!-- <ul class="nav pull-right top-menu">
+								<li></li>
+							  </ul> -->
+						</div>
+						<div class="col-lg-2">
+							<a href="{% url 'users:view_tutors' %}">
+								<i class="fa fa-plus"></i> add course
+							</a>
+
+						  </div>
+					  </div>
+
+					  <div class="form-group ">
+						<label for="city" class="control-label col-lg-2">Select Tutor(required)</label>
+						<div class="col-lg-8">
+
+							<select name="tutor"  class="form-control">
+								{% for tutor in tutors %}
+								<option value="{{tutor.id}}" >{{tutor.id}}, {{  tutor.user.first_name }}</option>
+								{% endfor %}
+							  </select>
+
+						</div>
+						<div class="col-lg-2">
+							<a href="{% url 'users:view_tutors' %}">
+								<i class="fa fa-plus"></i> add tutor
+							</a>
+
+						  </div>
+					  </div>
+
+
+					<div class="form-group">
+					  <div class="col-lg-offset-2 col-lg-10">
+						<button class="btn btn-theme" type="submit">Save</button>
+						<button class="btn btn-theme04" type="button">Cancel</button>
+					  </div>
+					</div>
+				  </form>
+				</div>
+			  </div>
+			  <!-- /form-panel -->
+			</div>
+			<!-- /col-lg-12 -->
+		  </div>
+		  <!-- /row -->
+
+
+		  {% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'web/dashboards/manager/base/base.html' %}
+{% block content %}
+		<!-- FORM VALIDATION -->
+		<div class="row mt">
+			<ul class="nav pull-right top-menu">
+				<li><a class="logout" href="{% url 'users:view_members' %}">View Members</a></li>
+			  </ul>
+			<div class="col-lg-12">
+
+			  <h4>Add Member</h4>
+			  <div class="form-panel">
+				<div class=" form">
+					{% include 'web/dashboards/manager/base/_alerts.html' %}
+
+				  <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="{% url 'users:add_new_member' %}">
+					{% csrf_token %}
+					
+					<div class="form-group ">
+						<label for="phone" class="control-label col-lg-2">Whatsapp Number (required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="whatsapp_number" name="whatsapp_number" minlength="2" type="text" required />
+						</div>
+					  </div>
+					  <div class="form-group ">
+						<label for="phone" class="control-label col-lg-2">Direct Calls Number (required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="direct_number" name="direct_number" minlength="2" type="text" required />
+						</div>
+					  </div>
+					<div class="form-group ">
+						<label for="cname" class="control-label col-lg-2">First Name (required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="first_name" name="first_name" minlength="2" type="text" required />
+						</div>
+					  </div>					
+					  <div class="form-group ">
+						<label for="cname" class="control-label col-lg-2">Last Name (required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="last_name" name="last_name" minlength="2" type="text" required />
+						</div>
+					  </div>
+					  <div class="form-group ">
+						<label for="cname" class="control-label col-lg-2">National ID (required)</label>
+						<div class="col-lg-10">
+						  <input class=" form-control" id="national_id" name="national_id" minlength="2" type="text" required />
+						</div>
+					  </div>
+					<div class="form-group ">
+					  <label for="cemail" class="control-label col-lg-2">E-Mail (required)</label>
+					  <div class="col-lg-10">
+						<input class="form-control " id="cemail" type="email" name="email" required />
+					  </div>
+					</div>
+					<div class="form-group ">
+					  <label for="curl" class="control-label col-lg-2">Facebook Account link (optional)</label>
+					  <div class="col-lg-10">
+						<input class="form-control " id="curl" type="url" name="url" />
+					  </div>
+					</div>
+					<div class="form-group ">
+					  <label for="home_address" class="control-label col-lg-2">Home Address (required)</label>
+					  <div class="col-lg-10">
+						<textarea class="form-control " id="home_address" name="home_address" required></textarea>
+					  </div>
+					</div>
+
+					<div class="form-group ">
+						<label for="select_city"  class="control-label col-lg-2">Select City (required)</label>
+
+						<div class="col-lg-10">
+							<select name="city" class="form-control">
+								<option>Harare</option>
+								<option>Gweru</option>
+								<option>Bulawayo</option>
+								<option>Gwanda</option>
+								<option>Norton</option>
+							  </select>
+						</div>
+					  </div>
+					
+					<div class="form-group">
+					  <div class="col-lg-offset-2 col-lg-10">
+						<button class="btn btn-theme" type="submit">Save</button>
+						<button class="btn btn-theme04" type="button">Cancel</button>
+					  </div>
+					</div>
+				  </form>
+				</div>
+			  </div>
+			  <!-- /form-panel -->
+			</div>
+			<!-- /col-lg-12 -->
+		  </div>
+		  <!-- /row -->
+		  {% endblock %}

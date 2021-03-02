@@ -1,0 +1,75 @@
+m    <!-- **********************************************************************************************************************************************************
+				MAIN SIDEBAR MENU
+				*********************************************************************************************************************************************************** -->
+		<!--sidebar start-->
+		<aside>
+				<div id="sidebar" class="nav-collapse ">
+					<!-- sidebar menu start-->
+					<ul class="sidebar-menu" id="nav-accordion">
+						{% if loged_in_user.profile_pic %}
+						<p class="centered"><a href="{% url 'users:profile' user.id %}">
+						
+							<img src="{{ loged_in_user.profile_pic.url }}" class="img-circle" width="80">
+					
+						</p>
+						{% endif %}
+						<h5 class="centered">{{loged_in_user.id}} {{loged_in_user.user.first_name}} {{ user.organization}}</h5>
+					</a>
+					 <li class="mt">
+							<a class="active" href="index.html">
+								<i class="fa fa-dashboard"></i>
+								<span>Dashboard</span>
+								</a>
+						</li>
+						<li class="sub-menu">
+							<a href="javascript:;">
+								<i class="fa fa-desktop"></i>
+								<span>Members</span>
+								</a>
+							<ul class="sub">
+								<li><a href="{% url 'users:assign_member' %}">Executive</a></li>
+								<li><a href="{% url 'users:view_tutors' %}">Tutors</a></li>
+								<li><a href="{% url 'users:view_members' %}">New Member</a></li>
+								<!-- <li><a href="font_awesome.html">Font Awesome</a></li> -->
+							</ul>
+						</li>
+						<li class="sub-menu">
+							<a href="javascript:;">
+								<i class="fa fa-cogs"></i>
+								<span>Subscriptions</span>
+								</a>
+							<ul class="sub">
+								<li><a href="grids.html">Executive</a></li>
+								<li><a href="calendar.html">Ordinary</a></li>
+								<li><a href="gallery.html">Loans</a></li>
+							</ul>
+						</li>
+						<li class="sub-menu">
+							<a href="javascript:;">
+								<i class="fa fa-book"></i>
+								<span>Education Content</span>
+								</a>
+							<ul class="sub">
+								<li><a href="blank.html">Business</a></li>
+								<li><a href="login.html">Individual</a></li>
+								<li><a href="lock_screen.html">users</a></li>
+								<li><a href="profile.html">Trainers</a></li>
+							</ul>
+						</li>
+						<li class="sub-menu">
+							<a href="javascript:;">
+								<i class="fa fa-tasks"></i>
+								<span>Accounting</span>
+								</a>
+							<ul class="sub">
+								<li><a href="form_component.html">Recievables</a></li>
+								<li><a href="advanced_form_components.html">Payables</a></li>
+								<li><a href="form_validation.html">Reports</a></li>
+
+							</ul>
+						</li>
+					</ul>
+					<!-- sidebar menu end-->
+				</div>
+			</aside>
+			<!--sidebar end-->

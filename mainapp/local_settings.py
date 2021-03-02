@@ -47,13 +47,13 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'USER': 'postgres',
-            'NAME': 'coopApp',
-            'PASSWORD': 'postgres',
-            'HOST': '127.0.0.1',
-            # 'PORT': '5432',
-            # 'NAME': 'findb',
-            # 'PASSWORD': 'fintech123456789',
-            # 'HOST': 'fintech.coxeytfzdoap.eu-west-2.rds.amazonaws.com',
+            # 'NAME': 'coopApp',
+            # 'PASSWORD': 'postgres',
+            # 'HOST': '127.0.0.1',
+            'PORT': '5432',
+            'NAME': 'boscca',
+            'PASSWORD': 'fintech123456789',
+            'HOST': 'fintech.coxeytfzdoap.eu-west-2.rds.amazonaws.com',
  
         }
     }

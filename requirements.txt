@@ -3,7 +3,6 @@ certifi
 chardet
 cycler
 Django
-django-cors-headers
 django-filter
 django-rest-auth
 djangorestframework

@@ -76,6 +76,16 @@ class SACCO(models.Model):
 	def __str__(self):
 		return self.name
 
+
+class Objective(models.Model):
+    video_url = models.TextField(null=True ,blank=True)
+    image = models.ImageField(null=True ,blank=True, upload_to='media/images')
+    title =models.TextField(null=True ,blank=True)
+    text =models.TextField(null=True ,blank=True)
+    def __str__(self):
+        return self.title
+
+		
 class Department(models.Model):
 	sacco =  models.ForeignKey(SACCO, related_name="sacco", verbose_name="Department", on_delete=models.CASCADE, default=0)
 	name = models.CharField(null=True ,blank=True,max_length=20)
@@ -118,3 +128,61 @@ class SaccoStaffMember(models.Model):
 
 	def __str__(self):
 		return self.profile.user.username
+
+class ArticleCategory(models.Model):
+	publication_date = models.DateTimeField(auto_now_add=True, blank=True)
+	is_active = models.BooleanField(('active'), default=False)
+	name = models.CharField(max_length=200, null=True ,blank=True)
+
+class Article(models.Model):
+	category = models.ForeignKey(ArticleCategory, on_delete = models.CASCADE,null=True, blank=True)
+	publisher = models.ForeignKey(SACCO, on_delete = models.CASCADE,null=True, blank=True)
+	author = models.ForeignKey(SaccoMember, on_delete = models.CASCADE)
+	head_line = models.CharField(max_length=200)
+	sub_head_line1 = models.CharField(null=True ,blank=True,max_length=200)
+	sub_head_line2 = models.CharField(null=True ,blank=True,max_length=200)
+	sub_head_line3 = models.CharField(null=True ,blank=True,max_length=200)
+	intro =models.TextField(null=True ,blank=True)
+	summary =models.TextField(null=True ,blank=True)
+	article_paragraph1 =models.TextField(null=True ,blank=True)
+	article_paragraph2 =models.TextField(null=True ,blank=True)
+	article_paragraph3 =models.TextField(null=True ,blank=True)
+	blockquote1 =models.CharField(null=True ,blank=True,max_length=50)
+	blockquote2 =models.CharField(null=True ,blank=True,max_length=50)
+	blockquote3 =models.CharField(null=True ,blank=True,max_length=50)
+	last_accessed = models.DateTimeField(null=True ,blank=True)
+	publication_date = models.DateTimeField(auto_now_add=True, blank=True)
+	is_active = models.BooleanField(('active'), default=False)
+	main_image = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
+	center_image = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
+	cover_image = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
+	video = models.FileField(upload_to="media/%Y/%m/%d",null=True, blank=True)
+	
+	def __str__(self):
+		return self.head_line
+
+class ArticleComment(models.Model):
+	Article = models.ForeignKey(Article, on_delete = models.CASCADE)
+	comment =models.TextField(null=True ,blank=True)
+	publication_date = models.DateTimeField(auto_now_add=True, blank=True)
+	is_active = models.BooleanField(('active'), default=False)
+	comment_by = models.CharField(max_length=200, null=True ,blank=True)
+	email = models.CharField(max_length=200, null=True ,blank=True)
+	likes = models.CharField(default='0', max_length=200, null=True ,blank=True)
+
+class ArticleCommentResponse(models.Model):
+	Comment = models.ForeignKey(ArticleComment, on_delete = models.CASCADE)
+	response =models.TextField(null=True ,blank=True)
+	publication_date = models.DateTimeField(auto_now_add=True, blank=True)
+	is_active = models.BooleanField(('active'), default=False)
+	response_by = models.CharField(max_length=200, null=True ,blank=True)
+	email = models.CharField(max_length=200, null=True ,blank=True)
+
+class ArticleRating(models.Model):
+	Article = models.ForeignKey(Article, on_delete = models.CASCADE)
+	rating =models.TextField(null=True ,blank=True)
+	publication_date = models.DateTimeField(auto_now_add=True, blank=True)
+	is_active = models.BooleanField(('active'), default=False)
+	rating_by = models.CharField(max_length=200, null=True ,blank=True)
+	email = models.CharField(max_length=200, null=True ,blank=True)
+

@@ -5,6 +5,7 @@ app_name = 'sacco'
 
 urlpatterns = [
 	path('dashboard', views.Dashboard.as_view(), name="dashboard"),
+    path('articles/<int:pk>/', views.ArticleDetailView.as_view(), name='article-detail'),
 
 
 ]

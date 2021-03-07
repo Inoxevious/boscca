@@ -1,0 +1,77 @@
+<!-- Blog Single Item Comments -->
+<section class="container g-py-100">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <!-- Blog Single Item Comments -->
+        <div class="g-brd-bottom g-brd-gray-light-v4 g-pb-30 g-mb-50">
+          <div class="g-brd-y g-brd-gray-light-v4 g-py-30 mb-5">
+            <h3 class="h6 g-color-black g-font-weight-600 text-uppercase mb-0"> {{comments_count}} Comments</h3>
+          </div>
+{% for comment in comments %}
+          <div class="media g-mb-30">
+
+            <!-- <img class="d-flex g-width-60 g-height-60 rounded-circle g-mt-3 g-mr-20" src="../../assets/img-temp/100x100/img7.jpg" alt="Image Description"> -->
+            <div class="media-body">
+              <div class="d-flex align-items-start g-mb-15 g-mb-10--sm">
+                <div class="d-block">
+                  <h5 class="h6 g-color-black g-font-weight-600">{{comment.comment_by}}</h5>
+                  <span class="d-block g-color-gray-dark-v5 g-font-size-11">{{comment.publication_date}}</span>
+                </div>
+                <div class="ml-auto">
+                  <a class="u-link-v5 g-color-black g-color-primary--hover g-font-weight-600 g-font-size-12 text-uppercase" href="#">Reply</a>
+                </div>
+              </div>
+
+              <p>
+                {{comment.comment}}
+              </p>
+
+              <ul class="list-inline my-0">
+                <li class="list-inline-item g-mr-20">
+                  <a class="g-color-gray-dark-v5 g-text-underline--none--hover" href="#">
+                likes {{comment.likes}}
+                <i class="icon-like g-pos-rel g-top-1 g-mr-3"></i> 
+                  </a>
+                </li>
+                <li class="list-inline-item g-mr-20">
+                  <a class="g-color-gray-dark-v5 g-text-underline--none--hover" href="#">
+                responses {{comment.responses}}
+                <i class="icon-finance-206 u-line-icon-pro g-pos-rel g-top-1 g-mr-3"></i> 
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+{% endfor %}
+          
+        </div>
+        <!-- End Blog Single Item Comments -->
+
+        <h3 class="h6 g-color-black g-font-weight-600 text-uppercase g-mb-30">Add Comment</h3>
+
+        <form method="POST" action="{% url 'web:comment_post' pk=article.id %}">
+            {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-6 form-group g-mb-30">
+              <input name="name" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" type="text" placeholder="First name">
+            </div>
+
+            <div class="col-md-6 form-group g-mb-30">
+              <input name="email" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" type="email" placeholder="Email">
+            </div>
+          </div>
+
+
+        <div class="g-mb-30">
+          <textarea name="comment" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus g-resize-none rounded-3 g-py-13 g-px-15" rows="12" placeholder="Your message"></textarea>
+        </div>
+
+      
+        <button type="submit" class="btn u-btn-primary g-font-weight-600 g-font-size-12 text-uppercase g-py-12 g-px-25" >Add Comment</button>
+    </form>
+      
+    </div>
+    </div>
+    </div>
+  </section>

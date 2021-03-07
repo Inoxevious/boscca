@@ -1,7 +1,7 @@
-cd ~/Documents/projects/dreatol/webapp
-source nhumeenv/bin/activate && conda deactivate
-cd ~/Documents/projects/cent_cent/coopApp/backend/django_app
-cd ~/Documents/projects/dreatol/webapp/finreactapp/backend/django_app
+cd ~/Documents/projects/cent_cent/coopApp/backend
+source coop_env/bin/activate && conda deactivate
+cd django_app
+
 python manage.py runserver
 
 python manage.py startapp 

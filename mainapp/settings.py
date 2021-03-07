@@ -25,12 +25,14 @@ SECRET_KEY = 'e*@x+djy%b1_s6^omuoe2=!8o#=v13iudla=gyfxj83)&sbm^k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['boscca.sacconstellation.coop']
+ALLOWED_HOSTS = ['boscca.sacconstellation.coop', '*','127.0.0.1' ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
+    # 'rest_framework',
+    # 'rest_framework.authtoken',
+    # 'rest_auth',
     # 'oauth2_provider',
     # 'corsheaders',
 
@@ -141,38 +143,38 @@ STATIC_ROOT = BASE_DIR + '/django_static'
 # )
 
 
-REST_FRAMEWORK = {
-      'DEFAULT_AUTHENTICATION_CLASSES': (
-    #    'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-       'rest_framework.authentication.BasicAuthentication',
-       'rest_framework.authentication.TokenAuthentication',
-        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
-    ),
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.BrowsableAPIRenderer',
-        'rest_framework.renderers.MultiPartRenderer',
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.TemplateHTMLRenderer'
+# REST_FRAMEWORK = {
+#       'DEFAULT_AUTHENTICATION_CLASSES': (
+#     #    'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+#        'rest_framework.authentication.BasicAuthentication',
+#        'rest_framework.authentication.TokenAuthentication',
+#         # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#         # 'rest_framework.authentication.SessionAuthentication',
+#     ),
+#     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.BrowsableAPIRenderer',
+#         'rest_framework.renderers.MultiPartRenderer',
+#         'rest_framework.renderers.JSONRenderer',
+#         'rest_framework.renderers.TemplateHTMLRenderer'
  
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-                # By default we set everything to admin,
-        #   then open endpoints on a case-by-case basis
-        'rest_framework.permissions.IsAdminUser',
-    ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20, 
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated',
+#                 # By default we set everything to admin,
+#         #   then open endpoints on a case-by-case basis
+#         'rest_framework.permissions.IsAdminUser',
+#     ),
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': 20, 
     
-    'DEFAULT_PARSER_CLASSES': (
-    'rest_framework.parsers.JSONParser',
-    'rest_framework.parsers.FormParser',
-    'rest_framework.parsers.MultiPartParser',
-),
+#     'DEFAULT_PARSER_CLASSES': (
+#     'rest_framework.parsers.JSONParser',
+#     'rest_framework.parsers.FormParser',
+#     'rest_framework.parsers.MultiPartParser',
+# ),
 
-}
+# }
 
 #########################################
     ##  IMPORT LOCAL SETTINGS ##

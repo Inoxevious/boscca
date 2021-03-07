@@ -44,3 +44,19 @@ class SaccoMemberAdmin(admin.ModelAdmin):
 @admin.register(SaccoStaffMember)
 class SaccoStaffMemberAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(ArticleComment)
+class ArticleCommentAdmin(admin.ModelAdmin):
+    pass
+@admin.register(ArticleCommentResponse)
+class ArticleCommentResponseAdmin(admin.ModelAdmin):
+    pass
+@admin.register(ArticleRating)
+class ArticleRatingAdmin(admin.ModelAdmin):
+    pass

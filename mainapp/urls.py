@@ -23,6 +23,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls import url
 
 
 from web import views
@@ -39,6 +40,10 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('web/', include('web.urls')),
     path('sacco/', include('sacco.urls')),
+
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    
 ]
 # urlpatterns += endpoints_urlpatterns
 urlpatterns += staticfiles_urlpatterns()

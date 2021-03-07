@@ -32,7 +32,7 @@
                   </div>
       
                   <div class="col-md-6 g-mb-30">
-                    <p class="g-font-size-17 mb-0">The society has a Management Board consisting of 7 members who run the society.</p>
+                    <p class="g-font-size-17 mb-0">{{board_statemt}}</p>
                   </div>
       
                   <div class="col-md-3 g-mb-30">
@@ -45,173 +45,41 @@
             </div>
             <!-- End Call to Action -->
       
-            <!-- Response to Recent Postering Incidents -->
-            <div class="container g-py-100">
-              <div class="row justify-content-lg-between align-items-center">
-                <div class="col-md-6">
-                  <img class="img-fluid" src="{% static 'app_assets/img-temp/900x700/img1.jpg' %}" alt="Image Description">
-                </div>
-      
-                <div class="col-md-5 g-mb-50 g-mb-0--md">
-                  <div class="mb-5">
-                    <span class="d-block g-color-white g-font-size-20--md mb-2">
-                      <span class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">Board chairperson-</span>
-                      </span>
-                      <span class="d-block g-color-blue g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                        William Gabriel Funete
-                      </span>
-                  </div>
-                  <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11" href="#">Learn More</a>
-                </div>
-              </div>
-            </div>
-            <!-- End Response to Recent Postering Incidents -->
+            {% for post in stafflist %}
+
       
             <!-- SACCO Competency Model -->
-            <div class="container g-pb-100">
+            <div class="container g-pb-100"> 
               <div class="row justify-content-lg-between align-items-center">
                 <div class="col-md-6 order-md-2">
-                  <img class="img-fluid" src="{% static 'app_assets/img-temp/Jeanette Makgolo.jpg' %}" alt="Image Description">
+              {% if post.profile.profile.profile_pic %}
+
+                  <img class="img-fluid" src="{{post.profile.profile.profile_pic.url}}" alt="Image Description">
+            {% endif %}
+                
                 </div>
       
                 <div class="col-md-5 order-md-1 g-mb-50 g-mb-0--md">
                   <div class="mb-5">
                     <span class="d-block g-color-white g-font-size-20--md mb-2">
-                      <span class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">Vice chairperson-</span>
+                      <span class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">
+                        {{post.department} - 
+                      </span>
                       </span>
                       <span class="d-block g-color-blue g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                        Jeanette C. Makgolo
+                        {{post.profile.profile.user.first_name}}
+                        {{post.profile.profile.user.last_name}} 
                       </span>
-                    <p>Deputy Accountant GENERAL at Botswana Ministry of Finance and Development Planning</p>
+                    <p>
+                        {{post.department}
+                    
+                    </p>
                   </div>
-                  <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11"  href="https://www.facebook.com/jeanette.makgolo">Learn More</a>
+                        {{post.profile.profile.user.last_name}} 
+                  <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11"  
+                  href="{{post.profile.profile.facebook_url}}">Learn More</a>
                 </div>
               </div>
             </div>
-            <!-- End SACCO Competency Model -->
-                        <!-- SACCO Competency Model -->
-                        <div class="container g-pb-100">
-                          <div class="row justify-content-lg-between align-items-center">
-                            <div class="col-md-6 order-md-2">
-                              <img class="img-fluid" src="{% static 'app_assets/img-temp/Rosemary Tlhagwane.jpg' %}" alt="Image Description">
-                            </div>
-                  
-                            <div class="col-md-5 order-md-1 g-mb-50 g-mb-0--md">
-                              <div class="mb-5">
-                                <span class="d-block g-color-white g-font-size-20--md mb-2">
-                                  <span class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">Treasurer-</span>
-                                  </span>
-                                  <span class="d-block g-color-blue g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                                    Rosemary Tlhagwane
-                                  </span>
-                                <p>SACCO's revised competency model is now ready. Review the model and associated resources that help describe what it means for employees to contribute to SACCO’s success.</p>
-                              </div>
-                              <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11" href="#">Learn More</a>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- End SACCO Competency Model -->
-                                    <!-- SACCO Competency Model -->
-            <div class="container g-pb-100">
-              <div class="row justify-content-lg-between align-items-center">
-                <div class="col-md-6 order-md-2">
-                  <img class="img-fluid" src="{% static 'app_assets/img-temp/900x700/img3.jpg' %}" alt="Image Description">
-                </div>
-      
-                <div class="col-md-5 order-md-1 g-mb-50 g-mb-0--md">
-                  <div class="mb-5">
-                    <span class="d-block g-color-white g-font-size-20--md mb-2">
-                      <span class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">Secretary-</span>
-                      </span>
-                      <span class="d-block g-color-blue g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                        Tumelo Abednico
-                      </span>
-                    <p>SACCO's revised competency model is now ready. Review the model and associated resources that help describe what it means for employees to contribute to SACCO’s success.</p>
-                  </div>
-                  <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11" href="#">Learn More</a>
-                </div>
-              </div>
-            </div>
-            <!-- End SACCO Competency Model -->
-      
-            <!-- Faculty Professors -->
-            <div class="clearfix g-bg-secondary g-py-100">
-              <!-- Heading -->
-              <div style="margin-top: -90px;" class="g-max-width-645 text-center mx-auto g-mb-60">
-                <h2 class="h1 mb-3">Community Members</h2>
-                <p>Put it all together, and choose your study opportunity at the Credit Union of SACCO.</p>
-              </div>
-              <!-- End Heading -->
-      
-              <!-- Faculty Professors Carousel -->
-              <div style="margin-top: -40px;"  class="js-carousel"
-                   data-infinite="true"
-                   data-slides-show="3"
-                   data-slides-scroll="1"
-                   data-arrows-classes="u-icon-v3 g-width-45 g-height-45 g-absolute-centered--y g-color-white g-color-white--hover g-bg-main g-bg-primary--hover rounded g-pa-12"
-                   data-arrow-left-classes="fa fa-angle-left g-left-40"
-                   data-arrow-right-classes="fa fa-angle-right g-right-40"
-                   data-center-mode="true"
-                   data-center-padding="100px"
-                   data-responsive='[{
-                     "breakpoint": 992,
-                     "settings": {
-                       "slidesToShow": 2,
-                       "centerPadding": 30
-                     }
-                   }, {
-                     "breakpoint": 768,
-                     "settings": {
-                       "slidesToShow": 2,
-                       "centerPadding": 30
-                     }
-                   }, {
-                     "breakpoint": 554,
-                     "settings": {
-                       "slidesToShow": 1,
-                       "centerPadding": 30
-                     }
-                   }]'>
-      
-                <!-- Faculty Professors -->
-                <div class="js-slide u-block-hover g-pb-10 g-mx-15">
-                  <div class="g-overflow-hidden">
-                    <img class="img-fluid w-100 u-block-hover__main--zoom-v1 g-transition-0_5" src="{% static 'app_assets/img-temp/400x500/img4.jpg' %}" alt="Image Description">
-                  </div>
-                  <div class="u-shadow-v32 g-bg-white g-pa-30">
-                    <h3 class="h3 g-font-weight-500 mb-1">Aaron M. Mariri </h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">Community Member</span>
-                  </div>
-                  <a class="u-link-v2" href="#"></a>
-                </div>
-                <!-- End Faculty Professors -->
-      
-                <!-- Faculty Professors -->
-                <div class="js-slide u-block-hover g-pb-10 g-mx-15">
-                  <div class="g-overflow-hidden">
-                    <img class="img-fluid w-100 u-block-hover__main--zoom-v1 g-transition-0_5" src="{% static 'app_assets/img-temp/400x500/img5.jpg' %}" alt="Image Description">
-                  </div>
-                  <div class="u-shadow-v32 g-bg-white g-pa-30">
-                    <h3 class="h3 g-font-weight-500 mb-1">Lebang Balotlegi</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">Community Member</span>
-                  </div>
-                  <a class="u-link-v2" href="#"></a>
-                </div>
-                <!-- End Faculty Professors -->
-          <!-- Faculty Professors -->
-          <div class="js-slide u-block-hover g-pb-10 g-mx-15">
-            <div class="g-overflow-hidden">
-              <img class="img-fluid w-100 u-block-hover__main--zoom-v1 g-transition-0_5" src="{% static 'app_assets/img-temp/400x500/img5.jpg' %}" alt="Image Description">
-            </div>
-            <div class="u-shadow-v32 g-bg-white g-pa-30">
-              <h3 class="h3 g-font-weight-500 mb-1">Lebang Balotlegi</h3>
-              <span class="d-block g-color-text-light-v1 g-font-size-16">Community Member</span>
-            </div>
-            <a class="u-link-v2" href="#"></a>
-          </div>
-          <!-- End Faculty Professors -->
-               
-              </div>
-            </div>
-            <!-- End Faculty Professors -->
+      {% endfor %}
             {% include 'web/pages/communites/cal_action.html' %}

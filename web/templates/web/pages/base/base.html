@@ -79,6 +79,7 @@
     <script src="{% static 'theme_assets/js/components/hs.dropdown.js' %}"></script>
     <script src="{% static 'theme_assets/js/helpers/hs.height-calc.js' %}"></script>
     <script src="{% static 'theme_assets/js/components/hs.carousel.js' %}"></script>
+    <script src="{% static 'theme_assets/js/components/hs.sticky-block.js' %}"></script>
     <script src="{% static 'theme_assets/js/components/hs.popup.js' %}"></script>
     <script src="{% static 'theme_assets/js/components/hs.go-to.js' %}"></script>
 
@@ -133,6 +134,14 @@
 
         // initialization of sticky blocks
         $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+      });
+
+
+
+      $(window).on('resize', function () {
+        setTimeout(function () {
+          $.HSCore.components.HSTabs.init('[role="tablist"]');
+        }, 200);
       });
 
               // Signin Tab

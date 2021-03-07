@@ -18,5 +18,7 @@ urlpatterns = [
 	path('future_members', views.FutureStudents.as_view(), name="future_members"),
 	path('current_members', views.CurrentStudents.as_view(), name="current_members"),
 	path('courses', views.Courses.as_view(), name="courses"),
+    path('comment_post/<int:pk>/', views.comment_post, name='comment_post'),
+    path('research_detail/<int:pk>/', views.ResearchDetailView.as_view(), name='research_detail'),
 
 ]

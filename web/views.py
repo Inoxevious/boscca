@@ -22,10 +22,12 @@ class Index(ListView):
         testimonials = Testimonial.objects.all()
         home_objectives = HomePageObjective.objects.all()
         home_facts = HomePageFacts.objects.all()[:4]
+        home_mission = HomePage.objects.all()
 
         context['most_recent'] = most_recent
         context['home_slides'] = self.home_slides
         context['testimonials'] = testimonials
+        context['home_mission'] = home_mission
         context['home_facts'] = home_facts
         context['home_objectives'] = home_objectives
 

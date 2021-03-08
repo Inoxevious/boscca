@@ -18,7 +18,7 @@ class Index(ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in the publisher
-        most_recent =  Article.objects.all().order_by('-appointment_date')[:1]
+        most_recent =  Article.objects.all().order_by('-publication_date')[:1]
         testimonials = Testimonial.objects.all()
         home_objectives = HomePageObjective.objects.all()
         home_facts = HomePageFacts.objects.all()[:4]

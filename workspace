@@ -13,7 +13,10 @@ python manage.py collectstatic --noinput
 
 ssh -i "finpara.pem" ubuntu@ec2-18-218-46-101.us-east-2.compute.amazonaws.com
 
+/home/greats/Documents/projects
 
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZ3EUSTucqPvuDIp9gcUVGM/iOXaWPkIB7ZKbhUa6nQtyVrqzFH6kzFeUzDJ5U/3UDn7wpAV8ilft4Cx6N3sg8vVACESRHPgxkYtfaNC5MKF23/BbBeIM+w1MDQib2VAyVBsfqnosS0Qp04QRxCRzBBKynB9RX4ABHg71tSKFhOdE7WXZeZRYAF6Jd2PKHibC1fJCDs4q6cGeLXxKieMK1oujvwwDmEgR/UJYTGVBjuSUd72e4yzLrf1Tmq1TKg7bmdv/cFqKYf3A4VVjuscFHEizF9VUytb/AiZiKpwMNSIlViix3+9QGCRTkcrK2pSzvAte8MZxUecvph2Et/cIKLn/Ym0c+KzNd3EIOyGZg6KBnzri80nGcrvqKTYlWoouiglQC/Tti1cWjilsjxz+e+sVJH1S1xYFiBYROMhPgP0PvndHVrQSsaFlaVEXr54x1YzO0X7/PYsEK7eSiUbzaEfSZaH/2oCZM7/5/BDB+hWdMI/Hv9B+ftydNZLMCvWs= ubuntu@ip-172-31-32-142
 rsync -avz -progress -e 
 
 # run locally in project main directory
@@ -21,7 +24,20 @@ rsync -avz -progress -e "ssh -i ../finpara.pem"  --exclude frontend/node_modules
 
 cd app
 sudo docker-compose build
+####################GIT########################
+git config --global user.email "mpasiinnocent@gmail.com"
+git config --global user.name "Inoxevious"
+git config --global core.preloadIndex false
 
+git add .
+git commit -m "update"
+git push
+
+git add .
+git commit -m "update"
+git pull
+:
+wq
 
 chmod +x init-letsencrypt.sh
 sudo ./init-letsencrypt.sh

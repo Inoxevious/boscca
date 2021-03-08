@@ -56,3 +56,7 @@ class TestimonialAdmin(admin.ModelAdmin):
 # class HomePageAdmin(admin.ModelAdmin):
 #     pass
 # Register your models here.
+
+@admin.register(HomePageObjective)
+class TestimonialAdmin(admin.ModelAdmin):
+    pass

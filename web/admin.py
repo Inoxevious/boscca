@@ -37,8 +37,22 @@ class HomePageAdmin(admin.ModelAdmin):
 
 
 @admin.register(BoardMembers)
-class HomePageAdmin(admin.ModelAdmin):
+class BoardMembersAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(Facts)
+class FactsAdmin(admin.ModelAdmin):
+    pass
 
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    pass
+
+# @admin.register(BoardMembers)
+# class HomePageAdmin(admin.ModelAdmin):
+#     pass
+
+# @admin.register(BoardMembers)
+# class HomePageAdmin(admin.ModelAdmin):
+#     pass
 # Register your models here.

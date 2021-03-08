@@ -3,7 +3,28 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 from web.models import *
 from sacco.models import *
 
+@admin.register(HomePage)
+class HomePageAdmin(admin.ModelAdmin):
+    inlines = (
+        HomePageSliderLineInline,HomePageFactsLineInline,HomePageObjectiveLineInline, HomePageArticleLineInline, HomePageTestimonialLineInline
+    )
 
+
+@admin.register(BoardMembers)
+class BoardMembersAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Facts)
+class FactsAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(HomePageObjective)
+class TestimonialAdmin(admin.ModelAdmin):
+    pass
 
 class HomePageSliderLineInline(admin.TabularInline):
     model = HomePageSlider
@@ -29,34 +50,3 @@ class NationalStaffMemberLineInline(admin.TabularInline):
     model = NationalStaffMember
     extra = 1
 
-@admin.register(HomePage)
-class HomePageAdmin(admin.ModelAdmin):
-    inlines = (
-        HomePageSliderLineInline,HomePageFactsLineInline,HomePageObjectiveLineInline, HomePageArticleLineInline, HomePageTestimonialLineInline
-    )
-
-
-@admin.register(BoardMembers)
-class BoardMembersAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(Facts)
-class FactsAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(Testimonial)
-class TestimonialAdmin(admin.ModelAdmin):
-    pass
-
-# @admin.register(BoardMembers)
-# class HomePageAdmin(admin.ModelAdmin):
-#     pass
-
-# @admin.register(BoardMembers)
-# class HomePageAdmin(admin.ModelAdmin):
-#     pass
-# Register your models here.
-
-@admin.register(HomePageObjective)
-class TestimonialAdmin(admin.ModelAdmin):
-    pass

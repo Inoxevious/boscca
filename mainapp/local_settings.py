@@ -45,15 +45,12 @@ else:
     ALLOWED_HOSTS = ['127.0.0.1','boscca.sacconstellation.coop']
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'USER': 'postgres',
-            # 'NAME': 'coopApp',
-            # 'PASSWORD': 'postgres',
-            # 'HOST': '127.0.0.1',
-            'PORT': '5432',
-            'NAME': 'boscca',
-            'PASSWORD': 'fintech123456789',
-            'HOST': 'fintech.coxeytfzdoap.eu-west-2.rds.amazonaws.com',
+            'ENGINE': 'django.db.backends.mysql'',
+            'USER': 'root',
+            'NAME': 'coopApp',
+            'PASSWORD': 'boscca',
+            'HOST': '127.0.0.1',
+            'default-character-set' = 'utf8'
  
         }
     }

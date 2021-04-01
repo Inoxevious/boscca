@@ -5,7 +5,7 @@ from sacco.models import *
 # Create your models here.
 
 class EducationDepartment(models.Model):
-	sacco =  models.ForeignKey(SACCO, on_delete=models.CASCADE, ,default=None)
+	sacco =  models.ForeignKey(SACCO, on_delete=models.CASCADE ,default=None)
 	name = models.CharField(null=True ,blank=True,max_length=20)
 	mission =models.TextField(null=True ,blank=True)
 	vision =models.TextField(null=True ,blank=True)

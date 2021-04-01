@@ -47,7 +47,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'USER': 'sacconstellation_boscca',
-            'NAME': 'sacconstellation_coopApp',
+            'NAME': 'sacconstellation_boscca',
             'PASSWORD': 'boscca@1#',
             'HOST': 'localhost',
             'PORT': '3306',

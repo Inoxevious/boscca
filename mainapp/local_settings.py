@@ -50,7 +50,7 @@ else:
             'NAME': 'coopApp',
             'PASSWORD': 'boscca',
             'HOST': '127.0.0.1',
-            'default-character-set' = 'utf8'
+            'default-character-set' : 'utf8'
  
         }
     }

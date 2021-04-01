@@ -46,9 +46,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'USER': 'root',
+            'USER': 'boscca',
             'NAME': 'coopApp',
-            'PASSWORD': 'boscca',
+            'PASSWORD': 'boscca@1#',
             'HOST': '127.0.0.1',
             'default-character-set' : 'utf8'
  

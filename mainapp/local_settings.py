@@ -45,7 +45,7 @@ else:
     ALLOWED_HOSTS = ['127.0.0.1','boscca.sacconstellation.coop']
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql'',
+            'ENGINE': 'django.db.backends.mysql',
             'USER': 'root',
             'NAME': 'coopApp',
             'PASSWORD': 'boscca',

@@ -49,7 +49,8 @@ else:
             'USER': 'sacconstellation_boscca',
             'NAME': 'sacconstellation_coopApp',
             'PASSWORD': 'boscca@1#',
-            'HOST': '127.0.0.1',
+            'HOST': 'localhost',
+            'PORT': '3306',
             'default-character-set' : 'utf8'
  
         }

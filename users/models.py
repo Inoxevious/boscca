@@ -32,7 +32,7 @@ class MembershipRole(models.Model):
 
 class AccountUser(models.Model):
 	# user_role = models.ForeignKey(Role, on_delete = models.CASCADE , null=True, blank=True)
-	membership_role = models.ForeignKey(MembershipRole, on_delete = models.CASCADE , null=True, blank=True)
+	membership_role = models.ForeignKey(MembershipRole, on_delete = models.CASCADE ,default=None, null=True, blank=True)
 	user = models.ForeignKey(User, on_delete = models.CASCADE , null=True, blank=True)
 	category = models.CharField(null=True ,blank=True,max_length=70)
 	work_email = models.CharField(null=True ,blank=True,max_length=70)
